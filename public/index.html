@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html lang="en" ng-app='ParkAr'>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script src="controllers/controller.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <title>Park-AR</title>  
+</head>
+<body>
+   <div class="container" ng-controller="controllerParkAr">
+      <div class="jumbotron">
+        <h1>Park-AR</h1>
+        <p class="lead">Bienvenido al gestor de estacionamiento online</p>
+        <!--<a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">Ver estacionamientos disponibles &raquo;</a>-->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>ADDRESS</th>
+              <th>DISTRICT</th>
+              <th>PHONE</th>
+              <th>FLOORS</th>
+              <th>ACTION</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input class="form-control" ng-model="park.id"></td>
+              <td><input class="form-control" ng-model="park.name"></td>
+              <td><input class="form-control" ng-model="park.address"></td>
+              <td><input class="form-control" ng-model="park.district"></td>  
+              <td><input class="form-control" ng-model="park.telephone"></td>
+              <td><input class="form-control" ng-model="park.floors"></td>
+              <td><button class="btn btn-primary" ng-click="addParking()">Add Parking</button></td>
+              <td><button class="btn btn-primary" ng-click="updateParking(park._id)">Update Parking</button></td>
+            </tr>
+            <tr ng-repeat="park in parkings">
+              <td>{{park.id}}</td>
+              <td>{{park.name}}</td>
+              <td>{{park.address}}</td>
+              <td>{{park.district}}</td>
+              <td>{{park.telephone}}</td>
+              <td>{{park.floors}}</td>
+              <td><button class="btn btn-warning" ng-click="editParking(park._id)">Edit Parking </button></td>
+              <td><button class="btn btn-danger" ng-click="removeParking(park._id)">Remove Parking</button></td>
+             </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+</body>
+</html>

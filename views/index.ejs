@@ -1,0 +1,53 @@
+<!DOCTYPE Html>
+<Html lang="en">
+  <head>
+    <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+      <% include partials/header %>
+    </header>
+    <main>
+       <div class="jumbotron">
+          <!--<img src="https://raw.githubusercontent.com/ferfigueredo/PAO/master/ParkAr/Content/Subterranean.jpg" alt="parkingLot" width: 30px; height: 30px; display:inline-block;>-->
+          <h1>
+            Bienvenido a Park-AR  
+          </h1>
+        </div>    
+   <div class="row">
+      <div class="col-sm-4">
+        <div class="jumbotron">
+          <h2> Estacionamientos </h2>
+            <ul> 
+              <% estacionamientos.forEach(function(estacionamiento) {%>
+                  <li><%=estacionamiento.name%></li>
+              <%});%>
+            </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="jumbotron">
+          <h2> Pisos </h2>
+            <ul> 
+              <% pisos.forEach(function(piso) { %>
+                  <li><%=piso.id %><%=piso.places%></li>
+              <%});%>
+            </ul>
+        </div>
+      </div>
+     <div class="col-sm-4">
+        <div class="jumbotron">
+          <h2> Clientes </h2>
+            <ul> 
+              <% clientes.forEach(function(cliente) { %>
+                  <li><%=cliente.id %><%=cliente.name%></li>
+              <%});%>
+            </ul>
+        </div>
+      </div>
+     </main>  
+    <footer>
+      <% include partials/footer %>
+    </footer>
+  </body>
+</Html>
